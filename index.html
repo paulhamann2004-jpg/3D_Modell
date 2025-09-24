@@ -12,16 +12,23 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #ffffff; /* heller Hintergrund */
+      background-color: #ffffff; /* Seitenhintergrund weiß */
     }
     model-viewer {
       width: 90%;
       height: 90%;
       max-width: 800px;
       max-height: 800px;
-      background-color: #ffffff; /* heller Hintergrund im Viewer */
+      background-color: #d9ffd9; /* sehr hellgrüner Hintergrund in der Box */
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    /* AR-Button, Info-Overlay & UI ausblenden */
+    model-viewer::part(default-ar-button),
+    model-viewer::part(default-progress-bar),
+    model-viewer::part(default-progress-mask),
+    model-viewer::part(default-progress-bar) {
+      display: none;
     }
   </style>
 </head>
@@ -29,12 +36,16 @@
   <model-viewer 
     src="Lochen.glb" 
     camera-controls 
-    auto-rotate 
-    animation-name="Animation" 
+    auto-rotate
+    auto-rotate-delay="1000" <!-- startet nach 1 Sekunde -->
+    animation-name="Animation"
     environment-image="neutral"
     shadow-intensity="1"
-    exposure="2"           <!-- Helleres Modell -->
-    device-pixel-ratio="2" <!-- Schärferes Rendering -->
+    exposure="1.2"  <!-- etwas dunkler, damit Modell nicht überbelichtet ist -->
+    interaction-prompt="none"
+    disable-zoom
+    disable-pan
+    interpolation-decay="500" <!-- verlängert scharfes Rendering nach Bewegung -->
     ar>
   </model-viewer>
 </body>
