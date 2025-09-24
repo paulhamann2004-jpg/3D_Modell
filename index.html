@@ -9,38 +9,20 @@
     body {
       margin: 0;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       background-color: #ffffff; /* Seitenhintergrund weiß */
-      font-family: sans-serif;
     }
 
     model-viewer {
       width: 90%;
-      height: 70%;
+      height: 90%;
       max-width: 800px;
       max-height: 800px;
-      background-color: #d9ffd9; /* hellgrüner Hintergrund */
+      background-color: #d9ffd9; /* sehr hellgrüner Hintergrund in der Box */
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    }
-
-    button {
-      margin: 10px 5px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: none;
-      background-color: #4CAF50;
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    button:hover {
-      background-color: #45a049;
     }
 
     /* AR-Button, Info-Overlay & UI ausblenden */
@@ -54,38 +36,18 @@
 <body>
   <!-- 3D Modell -->
   <model-viewer 
-    id="model"
-    src="Lochen.glb"
-    camera-controls
+    src="Lochen.glb" 
+    camera-controls 
+    autoplay
     animation-name="Animation"
     environment-image="neutral"
     shadow-intensity="1"
-    exposure="1"
+    exposure="1.2"
     interaction-prompt="none"
     disable-zoom
     disable-pan
     interpolation-decay="500"
-    ar
-    reveal="interaction">
+    ar>
   </model-viewer>
-
-  <!-- Buttons zum Steuern der Animation -->
-  <div>
-    <button id="play">Play</button>
-    <button id="pause">Pause</button>
-  </div>
-
-  <script>
-    const model = document.querySelector('#model');
-    const animationName = "Animation";
-
-    document.getElementById('play').addEventListener('click', () => {
-      model.play({ name: animationName });
-    });
-
-    document.getElementById('pause').addEventListener('click', () => {
-      model.pause();
-    });
-  </script>
 </body>
 </html>
