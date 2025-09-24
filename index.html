@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
+<!DOCTYPE html>
+<html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3D Modell Viewer - Lochen</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Modell – Lochen</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
@@ -12,26 +14,27 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #111;
+      background-color: #202020;
     }
     model-viewer {
-      width: 100%;
-      height: 100%;
-      max-width: 100vw;
-      max-height: 100vh;
-      background-color: #222;
+      width: 90%;
+      height: 90%;
+      max-width: 800px;
+      max-height: 800px;
+      background-color: #202020;
     }
   </style>
 </head>
 <body>
-  <!-- Hier wird dein Modell geladen -->
   <model-viewer 
-    src="Lochen.glb"
-    alt="3D Modell Lochen"
-    camera-controls
-    auto-rotate
-    ar
-    shadow-intensity="1">
+    src="Lochen.glb" 
+    camera-controls 
+    autoplay 
+    animation-name="Animation" 
+    environment-image="neutral"
+    shadow-intensity="1"
+    exposure="1.2"
+    ar>
   </model-viewer>
 </body>
 </html>
