@@ -9,59 +9,33 @@
     body {
       margin: 0;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #a0d8f1; /* hellblauer Hintergrund */
+      background-color: #ffffff; /* heller Hintergrund */
     }
     model-viewer {
       width: 90%;
-      height: 80%;
+      height: 90%;
       max-width: 800px;
       max-height: 800px;
-      background-color: #a0d8f1;
+      background-color: #ffffff; /* heller Hintergrund im Viewer */
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      transform-origin: center center;
-    }
-    #scaleSlider {
-      margin-top: 20px;
-      width: 300px;
     }
   </style>
 </head>
 <body>
   <model-viewer 
-    id="modelViewer"
     src="Lochen.glb" 
     camera-controls 
-    autoplay 
+    auto-rotate 
     animation-name="Animation" 
     environment-image="neutral"
     shadow-intensity="1"
-    exposure="2"
-    device-pixel-ratio="2"
+    exposure="2"           <!-- Helleres Modell -->
+    device-pixel-ratio="2" <!-- Schärferes Rendering -->
     ar>
   </model-viewer>
-
-  <!-- Slider zur Größenanpassung -->
-  <input 
-    type="range" 
-    id="scaleSlider" 
-    min="0.5" 
-    max="2" 
-    step="0.01" 
-    value="1">
-  
-  <script>
-    const slider = document.getElementById('scaleSlider');
-    const model = document.getElementById('modelViewer');
-
-    slider.addEventListener('input', () => {
-      const scale = slider.value;
-      model.style.transform = `scale(${scale})`;
-    });
-  </script>
 </body>
 </html>
